@@ -36,12 +36,18 @@ def redirect():
     return redirect('https://astryda-stories-7i7aspkfwq-lz.a.run.app')
 
 # using abort function
+def load_user(id):
+    if id == 1:
+        name = "Astryda"
+        return name
+
 @app.route('/abort/<id>')
 def get_user(id):
     user = load_user(id)
     if not user:
         abort(404)
-    return '<h1>Hello, {}</h1>'.format(user.name)
+    else:
+        return '<h1>Hello, {}</h1>'.format(user)
 
 
 #flask --app hello run
